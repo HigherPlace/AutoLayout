@@ -18,6 +18,6 @@
 2. Add the dependency
 ````
     dependencies {
-	        compile 'com.github.ashima0512:OrangeRetrofitDemo:v1.0.0'
+        compile 'com.github.HigherPlace:AutoLayout:v1.0.0'
     }
 ````
