@@ -12,8 +12,9 @@ import com.bryan.autolayout.widget.AutoFrameLayout;
 import com.bryan.autolayout.widget.AutoLinearLayout;
 import com.bryan.autolayout.widget.AutoRelativeLayout;
 
-;
-
+/**
+ * 如果需要自适应布局，需要在子类中重写isNeedAutoLayout方法，并且返回true
+ */
 public class AutoLayoutActivity extends AppCompatActivity {
     private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
     private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
@@ -22,9 +23,8 @@ public class AutoLayoutActivity extends AppCompatActivity {
     private static final String LAYOUT_COORDINATORLAYOUT = "CoordinatorLayout";
     private static final String LAYOUT_DRAWERLAYOUT = "DrawerLayout";
 
-
     protected boolean isNeedAutoLayout() {
-        return true;
+        return false;
     }
 
 
@@ -32,7 +32,7 @@ public class AutoLayoutActivity extends AppCompatActivity {
     public View onCreateView(String name, Context context, AttributeSet attrs) {
         if (!isNeedAutoLayout()) {
             return super.onCreateView(name, context, attrs);
-        }else {
+        } else {
             View view = null;
             if (name.equals(LAYOUT_FRAMELAYOUT)) {
                 view = new AutoFrameLayout(context, attrs);
