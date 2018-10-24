@@ -15,9 +15,9 @@ public class UIUtils {
 
     private static UIUtils INSTANCE;
 
-    public static UIUtils getINSTANCE(Context context) {
+    public static UIUtils getINSTANCE(Context context, boolean useDeviceSize) {
         if (INSTANCE == null) {
-            INSTANCE = new UIUtils(context);
+            INSTANCE = new UIUtils(context, useDeviceSize);
         }
         return INSTANCE;
     }
@@ -36,7 +36,7 @@ public class UIUtils {
 
 
     //初始化
-    private UIUtils(Context context) {
+    private UIUtils(Context context, boolean useDeviceSize) {
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         //存放真实宽高
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -48,15 +48,28 @@ public class UIUtils {
             Log.i("TAG", "systemBarHeight :" + systemBarHeight);
             //处理真实的宽高问题，要适配所有的机器需要拿到真实的宽高
             //有横屏和竖屏区分
-            if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
-                //横屏
-                this.displayMetricsWidth = (float) displayMetrics.heightPixels;
-                this.displayMetricsHeight = (float) displayMetrics.widthPixels - systemBarHeight;
+            if (!useDeviceSize) {
+                if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
+                    //横屏
+                    this.displayMetricsWidth = (float) displayMetrics.heightPixels;
+                    this.displayMetricsHeight = (float) displayMetrics.widthPixels - systemBarHeight;
+                } else {
+                    //竖屏
+                    this.displayMetricsWidth = (float) displayMetrics.widthPixels;
+                    this.displayMetricsHeight = (float) displayMetrics.heightPixels - systemBarHeight;
+                }
             } else {
-                //竖屏
-                this.displayMetricsWidth = (float) displayMetrics.widthPixels;
-                this.displayMetricsHeight = (float) displayMetrics.heightPixels - systemBarHeight;
+                if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
+                    //横屏
+                    this.displayMetricsWidth = (float) displayMetrics.heightPixels;
+                    this.displayMetricsHeight = (float) displayMetrics.widthPixels;
+                } else {
+                    //竖屏
+                    this.displayMetricsWidth = (float) displayMetrics.widthPixels;
+                    this.displayMetricsHeight = (float) displayMetrics.heightPixels;
+                }
             }
+
         }
     }
 
@@ -96,7 +109,6 @@ public class UIUtils {
             e.printStackTrace();
         }
         return defValue;
-
     }
 
 

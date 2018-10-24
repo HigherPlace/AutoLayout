@@ -22,7 +22,15 @@ public class AutoLayoutConifg {
     private int mDesignWidth;
     private int mDesignHeight;
 
+    /*是否使用设备的物理尺寸，包括状态栏和导航栏*/
+    private boolean useDeviceSize;
+
     private AutoLayoutConifg() {
+    }
+
+    public AutoLayoutConifg useDeviceSize() {
+        useDeviceSize = true;
+        return this;
     }
 
     public void checkParams() {
@@ -82,7 +90,9 @@ public class AutoLayoutConifg {
     public void init(Context context) {
         getMetaData(context);
         L.e("基准宽度：" + mDesignWidth + "基准高度：" + mDesignHeight);
-        int[] screenSize = UIUtils.getINSTANCE(context).getScreenSize();
+        int[] screenSize;
+        screenSize = UIUtils.getINSTANCE(context, useDeviceSize).getScreenSize();
+
         mScreenWidth = screenSize[0];
         mScreenHeight = screenSize[1];
         L.e("屏幕可用宽度：" + mScreenWidth + "屏幕可用高度：" + mScreenHeight);
