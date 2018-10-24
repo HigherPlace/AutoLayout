@@ -92,7 +92,6 @@ public class AutoLayoutConifg {
         L.e("基准宽度：" + mDesignWidth + "基准高度：" + mDesignHeight);
         int[] screenSize;
         screenSize = UIUtils.getINSTANCE(context, useDeviceSize).getScreenSize();
-
         mScreenWidth = screenSize[0];
         mScreenHeight = screenSize[1];
         L.e("屏幕可用宽度：" + mScreenWidth + "屏幕可用高度：" + mScreenHeight);

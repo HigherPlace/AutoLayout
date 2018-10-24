@@ -45,6 +45,8 @@ public class UIUtils {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             //获取到状态栏的高度
             int systemBarHeight = getSystemBarHeight(context);
+            /*默认获取到的高度不算状态栏，也不算导航栏的高度*/
+            int navigationBarHeight = getNavigationBarHeight(context);
             Log.i("TAG", "systemBarHeight :" + systemBarHeight);
             //处理真实的宽高问题，要适配所有的机器需要拿到真实的宽高
             //有横屏和竖屏区分
@@ -61,12 +63,13 @@ public class UIUtils {
             } else {
                 if (displayMetrics.widthPixels > displayMetrics.heightPixels) {
                     //横屏
-                    this.displayMetricsWidth = (float) displayMetrics.heightPixels;
+                    this.displayMetricsWidth = (float) displayMetrics.heightPixels + navigationBarHeight;
+                    ;
                     this.displayMetricsHeight = (float) displayMetrics.widthPixels;
                 } else {
                     //竖屏
                     this.displayMetricsWidth = (float) displayMetrics.widthPixels;
-                    this.displayMetricsHeight = (float) displayMetrics.heightPixels;
+                    this.displayMetricsHeight = (float) displayMetrics.heightPixels + navigationBarHeight;
                 }
             }
 
@@ -88,6 +91,17 @@ public class UIUtils {
      */
     private int getSystemBarHeight(Context context) {
         return getValue(context, DIMEN_CLASS, DIMEN_FIELD, 48);
+    }
+
+    /**
+     * 获取导航栏高度
+     *
+     * @param context context
+     * @return 导航栏高度
+     */
+    public int getNavigationBarHeight(Context context) {
+        int resourceId = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android");
+        return context.getResources().getDimensionPixelSize(resourceId);
     }
 
     /**

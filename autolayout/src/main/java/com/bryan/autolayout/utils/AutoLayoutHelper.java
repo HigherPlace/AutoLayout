@@ -92,7 +92,6 @@ public class AutoLayoutHelper {
 
     public AutoLayoutHelper(ViewGroup host) {
         mHost = host;
-
         if (mAutoLayoutConifg == null) {
             initAutoLayoutConfig(host);
         }
