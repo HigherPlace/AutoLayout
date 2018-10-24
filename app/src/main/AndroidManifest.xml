@@ -12,10 +12,10 @@
 
         <meta-data
             android:name="design_width"
-            android:value="1080" />
+            android:value="768" />
         <meta-data
             android:name="design_height"
-            android:value="1872" />
+            android:value="1024" />
 
 
         <activity android:name=".MainActivity">
