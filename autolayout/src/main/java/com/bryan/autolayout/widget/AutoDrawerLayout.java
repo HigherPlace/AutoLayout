@@ -2,9 +2,10 @@ package com.bryan.autolayout.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.view.Gravity;
+
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bryan.autolayout.AutoLayoutInfo;
 import com.bryan.autolayout.utils.AutoLayoutHelper;

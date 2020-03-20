@@ -1,10 +1,11 @@
 package com.bryan.autolayout;
 
 import android.content.Context;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.bryan.autolayout.widget.AutoCardView;
 import com.bryan.autolayout.widget.AutoCoordinatorLayout;

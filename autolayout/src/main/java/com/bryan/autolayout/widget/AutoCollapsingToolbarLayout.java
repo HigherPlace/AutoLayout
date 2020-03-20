@@ -3,12 +3,12 @@ package com.bryan.autolayout.widget;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 
 import com.bryan.autolayout.AutoLayoutInfo;
 import com.bryan.autolayout.utils.AutoLayoutHelper;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 /**
  * Created by zhy on 15/6/30.

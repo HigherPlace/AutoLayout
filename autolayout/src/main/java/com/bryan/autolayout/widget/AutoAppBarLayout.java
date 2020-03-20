@@ -1,12 +1,12 @@
 package com.bryan.autolayout.widget;
 
 import android.content.Context;
-import android.support.design.widget.AppBarLayout;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 
 import com.bryan.autolayout.AutoLayoutInfo;
 import com.bryan.autolayout.utils.AutoLayoutHelper;
+import com.google.android.material.appbar.AppBarLayout;
 
 public class AutoAppBarLayout extends AppBarLayout {
 

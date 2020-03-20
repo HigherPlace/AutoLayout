@@ -1,10 +1,10 @@
 package com.bryan.autolayout.widget;
 
 import android.content.Context;
-import android.support.design.widget.NavigationView;
 import android.util.AttributeSet;
 
 import com.bryan.autolayout.utils.AutoLayoutHelper;
+import com.google.android.material.navigation.NavigationView;
 
 
 /**
